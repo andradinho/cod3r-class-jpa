@@ -1,5 +1,6 @@
 package model.onetoone;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,7 @@ public class Client {
 	
 	private String name;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "seat_id", unique = true)
 	private Seat seat;
 	
