@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +16,9 @@ public class Seat {
 	private Long id;
 	
 	private String name;
+	
+	@OneToOne(mappedBy = "seat")
+	private Client client;
 	
 	public Seat() {
 		
@@ -39,5 +43,13 @@ public class Seat {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 }
